@@ -17,10 +17,10 @@
           },
           "envVariables": {
             "DB_TYPE": "sqlite",
-            "DB_FILEPATH": "/data/sqlite.db"
+            "DB_FILEPATH": "/data/wiki.db"
           },
           "volumeMounts": {
-            "/data": "wiki-cfs"
+            "/wiki/data": "wiki-cfs"
           }
         }
       }
