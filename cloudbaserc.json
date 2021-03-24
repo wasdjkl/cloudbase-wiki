@@ -1,0 +1,37 @@
+{
+  "version": "2.0",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "wiki",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "wiki",
+          "servicePath": "/wiki",
+          "localPath": "./",
+          "uploadType": "image",
+          "containerPort": 3000,
+          "imageInfo": {
+            "imageUrl": "requarks/wiki:2.5.191"
+          },
+          "envVariables": {
+            "DB_TYPE": "sqlite",
+            "DB_FILEPATH": "/data/sqlite.db"
+          },
+          "volumeMounts": {
+            "/data": "wiki-cfs"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "addons": [
+        {
+          "type": "CFS",
+          "name": "wiki-cfs"
+        }
+      ]
+    }
+  }
+}
